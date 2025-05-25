@@ -25,8 +25,8 @@ app.use(expressLayouts);
 app.set('layout', 'layouts/layout');
 
 // Models
-const Subscriber = require('./models/Subscriber');
-const Contact = require('./models/Contact');
+const Subscriber = require('./models/subscriber');
+const Contact = require('./models/contact');
 
 // Routes
 const mainRoutes = require('./routes/mainRoutes');
