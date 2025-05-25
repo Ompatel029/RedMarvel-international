@@ -1,0 +1,41 @@
+<section id="contact">
+  <div style="text-align: center;">
+     <h2 class="section-heading">Contact Us</h2>
+  </div>
+  
+
+  <div class="contact-container">
+    <!-- Google Map -->
+    <div class="map-box">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3058.190574340593!2d72.95726088047329!3d23.354431622297312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20K%20K%20MART%20%20Road%2FStreet%3A%20HIMMATNAGAR%20ROAD%20%20City%2FTown%2FVillage%3A%20Talod%20%20District%3A%20Sabarkantha%20383215!5e0!3m2!1sen!2sin!4v1748059998465!5m2!1sen!2sin" 
+        width="100%" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Contact Info and Form -->
+    <div class="form-box">
+      <p><strong>Phone :</strong> +91 94278 89117</p>
+      <p><strong>Email :</strong> info@REDMARVEL INTERNATIONAL.in</p>
+      <p class="highlight-text">Want to Know More?? Drop Us a Mail</p>
+
+      <form action="/contact" method="POST">
+        <div class="input-row">
+          <input type="text" name="firstname" placeholder="First Name" required>
+          <input type="text" name="lastname" placeholder="Last Name" required>
+        </div>
+        <div class="input-row">
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="phone" placeholder="Contact Number" required>
+        </div>
+        <textarea name="message" placeholder="Your message here..." required></textarea>
+        <button type="submit">SEND</button>
+      </form>
+    </div>
+  </div>
+</section>
