@@ -244,3 +244,25 @@ p {
     padding-left: 30px;
   }
 }
+.spice-description {
+  background-color: #fff8f0;
+  border: 1px solid #f2e1c1;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+.spice-description p {
+  color: #5a3e2b;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.spice-description strong {
+  color: #c1440e; /* Highlight specific spice names */
+  font-weight: 600;
+}
