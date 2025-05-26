@@ -3,127 +3,202 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+   
 }
 
+/* Body */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f8f9fa;
-  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-/* Navbar styles */
+/* Header */
 header {
-  background-color: white;
-  color: black;
-  padding: 15px 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  min-height: 60px;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
+/* Left: Logo and Company Name */
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 0.8rem;
 }
 
 .logo {
-  height: 50px;
+  height: 40px;
+  width: auto;
 }
 
-.tagline {
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #333;
-  margin-left: 130px;
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
 }
 
+.navbar-left h1 {
+  font-size: 1.2rem;
+  color: #c62828;
+  white-space: nowrap;
+}
+
+/* Right Nav */
 .navbar-right {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
-.navbar-right a,
-.dropbtn {
-  margin-left: 20px;
-  color: black;
+.navbar-right a {
   text-decoration: none;
+  color: #333;
   font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  position: relative;
 }
 
-.navbar-right a:hover,
-.dropbtn:hover {
-  background-color: #004080;
-  color: white;
+.navbar-right a:hover {
+  color: #c62828;
 }
 
 /* Dropdown */
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
-.dropbtn {
-  text-decoration: none;
-  padding: 10px;
-  color: #000;
-  cursor: pointer;
+.dropbtn::after {
+  content: " ▼";
+  font-size: 0.5rem;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #fff;
-  min-width: 220px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  max-height: 250px;
-  overflow-y: auto;
+  min-width: 180px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-/* Scrollbar for dropdown */
-.dropdown-content::-webkit-scrollbar {
-  width: 8px;
+.dropdown-content a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
 }
-.dropdown-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-.dropdown-content::-webkit-scrollbar-thumb {
-  background-color: #999;
-  border-radius: 4px;
+
+.dropdown-content a:hover {
+  background-color: #ffe5e5;
+  color: #c62828;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown-content a {
-  color: #333;
-  padding: 10px 16px;
-  text-decoration: none;
-  display: block;
+/* Mobile Toggle */
+.mobile-menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: auto;
 }
 
-.dropdown-content a:hover {
-  background-color: #007bff;
-  color: white;
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    gap: 0;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-right a,
+  .dropdown .dropbtn {
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .navbar-right.active {
+    display: flex;
+  }
 }
 
-/* Main banner */
-section img {
-  max-width: 100%;
+.hero-video {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  display: block;
-  object-fit: cover;
+  overflow: hidden;
 }
+
+/* Make video fixed and behind everything */
+.hero-video video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none; /* Prevents video from blocking clicks */
+}
+
+/* Navbar must be above the video */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white; /* Zaroori: transparent hoga to video dikhai dega */
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Optional: Remove any margin/padding that causes scroll */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 
 /* Products showcase */
 .products-showcase {
@@ -211,8 +286,42 @@ section img {
 
 .export-item {
   flex: 1 1 calc(25% - 20px);
-  max-width: 300px;
+  max-width: 450px;
   text-align: center;
+}
+
+
+/* Medium screens: increase max width and reduce items per row */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .export-item {
+    flex: 1 1 calc(33.33% - 20px); /* 3 items per row */
+    max-width: 400px; /* wider images */
+  }
+  .export-item img {
+    height: 300px;
+  }
+}
+
+/* Large screens: increase max width further */
+@media (min-width: 1025px) {
+  .export-item {
+    flex: 1 1 calc(25% - 20px); /* back to 4 items per row */
+    max-width: 400px; /* bigger images */
+  }
+  .export-item img {
+    height: 320px;
+  }
+}
+
+/* Small screens: full width, single column */
+@media (max-width: 480px) {
+  .export-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .export-item img {
+    height: auto;
+  }
 }
 
 .export-item img {
@@ -267,8 +376,11 @@ section img {
   overflow: hidden;
   position: relative;
   width: 100%;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  background-color: white;
+}
+.certification-belt-wrapper {
+  overflow-x: hidden; /* keep scroll animation hidden outside */
+  overflow-y: visible; /* allow vertical content */
 }
 
 .certification-belt-track {
@@ -287,12 +399,33 @@ section img {
   }
 }
 
+@media (max-width: 768px) {
+  .logo-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .logo-circle img {
+    width: 80%;
+    height: 80%;
+  }
+
+  .certification-belt-track {
+    gap: 30px;
+  }
+  .certification-heading {
+    font-size: 28px;
+  }
+}
+
+
+
 .logo-circle {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  overflow: hidden;
   background: white;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -300,8 +433,8 @@ section img {
 }
 
 .logo-circle img {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
 }
 
@@ -314,6 +447,7 @@ section img {
 #contact {
   padding: 50px 0;
   text-align: center;
+  background-color: white;
 }
 
 #contact h2 {

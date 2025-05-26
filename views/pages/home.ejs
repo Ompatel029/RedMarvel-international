@@ -1,7 +1,20 @@
 <!-- Main full-screen banner image -->
-<section>
-  <img src="/images/home1.png" alt="Welcome Image" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+<section style="width: 99vw; height: 100vh; overflow: hidden;">
+  <video autoplay muted loop playsinline
+    style="width: 100%; height: 100%; object-fit: cover; display: block;"
+    id="heroVideo">
+    <source src="/image/home.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 </section>
+
+
+
+
+<script>
+  const video = document.getElementById('heroVideo');
+  video.playbackRate = 2.0;
+</script>
 
 <!-- Animated product images section -->
 <section class="products-showcase">

@@ -1,46 +1,75 @@
-<header>
-  <div class="navbar-left">
-    <img src="/images/logo.png" alt="Logo" class="logo" />
-    <div>
-      <h1>REDMARVEL INTERNATIONAL</h1>
-      <p class="tagline">Connecting the World</p>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RedMarvel International</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    header{
+      position: sticky;
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('active');
 
-  <nav class="navbar-right">
-    <a href="/">Home</a>
-
-    <div class="dropdown">
-      <a href="#" class="dropbtn">About</a>
-      <div class="dropdown-content">
-        <a href="/about/keyperson">Key Person</a>
-        <a href="/about/company">Company</a>
+      // Toggle dropdowns inside mobile menu
+      const dropdowns = document.querySelectorAll('.dropdown');
+      dropdowns.forEach(drop => {
+        drop.addEventListener('click', function (e) {
+          e.stopPropagation();
+          this.classList.toggle('active');
+        });
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="navbar-left">
+      <img src="/images/logo.png" alt="Logo" class="logo" />
+      <div>
+        <h1>REDMARVEL INTERNATIONAL</h1>
       </div>
     </div>
+    <div class="mobile-menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="navbar-right" id="navbar">
+      <a href="/">Home</a>
 
-    <div class="dropdown">
-      <a href="#" class="dropbtn">Products</a>
-      <div class="dropdown-content">
-        <a href="/products/freeze-dried">Freeze Dried Food Items</a>
-        <a href="/products/ceramics-stones">Ceramic & Stones</a>
-        <a href="/products/dehydrate">Dehydrate Products</a>
-        <a href="/products/ayurvedic">Ayurvedic Medicine (Pharmaceutical)</a>
-        <a href="/products/chemicals">Chemicals</a>
-        <a href="/products/leather">Leather Products</a>
-        <a href="/products/handicraft">Handicraft</a>
-        <a href="/products/luxurious">Luxurious Products</a>
-        <a href="/products/honey">Honey</a>
-        <a href="/products/mix-vegetables">Mix Vegetables</a>
-        <a href="/products/mix-fruits">Mix Fruits</a>
-        <a href="/products/spices">Spices</a>
-        <a href="/products/frozen">Frozen Products</a>
-        <a href="/products/dried product">dried products</a>
-        <a href="/products/mushroom">Mushroom</a>
-
+      <div class="dropdown">
+        <a href="#" class="dropbtn">About</a>
+        <div class="dropdown-content">
+          <a href="/about/keyperson">Key Person</a>
+          <a href="/about/company">Company</a>
+        </div>
       </div>
-    </div>
 
-    <a href="/other">Other</a>
-<a href="/contact">Contact</a> <!-- ✅ Correct -->
-  </nav>
-</header>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">Products</a>
+        <div class="dropdown-content">
+          <a href="/products/freeze-dried">Freeze Dried Food Items</a>
+          <a href="/products/ceramics-stones">Ceramic & Stones</a>
+          <a href="/products/dehydrate">Dehydrate Products</a>
+          <a href="/products/ayurvedic">Ayurvedic Medicine (Pharmaceutical)</a>
+          <a href="/products/chemicals">Chemicals</a>
+          <a href="/products/leather">Leather Products</a>
+          <a href="/products/handicraft">Handicraft</a>
+          <a href="/products/luxurious">Luxurious Products</a>
+          <a href="/products/honey">Honey</a>
+          <a href="/products/mix-vegetables">Mix Vegetables</a>
+          <a href="/products/mix-fruits">Mix Fruits</a>
+          <a href="/products/spices">Spices</a>
+          <a href="/products/frozen">Frozen Products</a>
+          <a href="/products/dried-product">Dried Products</a>
+          <a href="/products/mushroom">Mushroom</a>
+        </div>
+      </div>
+
+      <a href="/other">Other</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+</body>
+</html>
