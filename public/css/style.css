@@ -6,7 +6,6 @@
    
 }
 
-/* Body */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
@@ -15,17 +14,20 @@ body {
 
 /* Header */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
-  min-height: 60px;
   position: sticky;
   top: 0;
+  z-index: 10;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgba(0, 0, 0, 0.2); /* ✅ Make it fully transparent */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
+
+
+
 
 /* Left: Logo and Company Name */
 .navbar-left {
@@ -60,11 +62,12 @@ header {
 
 .navbar-right a {
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: 500;
   padding: 0.4rem 0.6rem;
   font-size: 0.95rem;
   position: relative;
+
 }
 
 .navbar-right a:hover {
@@ -82,6 +85,7 @@ header {
 }
 
 .dropdown-content {
+  color: white;
   display: none;
   position: absolute;
   background-color: #fff;
@@ -178,21 +182,7 @@ header {
   pointer-events: none; /* Prevents video from blocking clicks */
 }
 
-/* Navbar must be above the video */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: white; /* Zaroori: transparent hoga to video dikhai dega */
-  padding: 10px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
 
-
-/* Optional: Remove any margin/padding that causes scroll */
 body, html {
   margin: 0;
   padding: 0;
