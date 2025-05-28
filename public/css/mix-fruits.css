@@ -43,7 +43,6 @@ header {
 
 .navbar-left h1 {
   font-size: 1.2rem;
-  color: #c62828;
   white-space: nowrap;
 }
 
@@ -180,50 +179,78 @@ h1::after {
   padding: 20px;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px;
+  gap: 5px;
   border-bottom: 1px solid #ddd;
+
 }
 
 .image-container {
   flex: 1;
-  max-width: 500px;
+  max-width: 400px;
   padding: 10px;
-  /* background-color: #fff;  ❌ Removed white background */
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 350px;
-}
-
+  height: 300px;
+}  
 .image-container img {
-  width: 500px;
-  height: 350px;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   object-fit: contain;
-  border-radius: 10px;
   display: block;
-  background: transparent; /* optional if image has transparency */
+  background: transparent;
+  border-radius: 30px;
 }
-
 .image-container img:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
+
+.image-container.right {
+    margin-left: 40px;
+
+}
+
+
 .text-container {
-  padding: 0 10px;
+  max-width: 900px;
+  margin: 10px;
 }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 12px;
-  color: #222;
+  font-size: 1.5rem;
+  color: #333;
 }
 
 p {
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #333;
+  font-size: 1rem;
+  color: #555;
 }
+
+.fruit-description {
+  background-color: #fff8f0;
+  border: 1px solid #f2e1c1;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 1300px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.fruit-description p {
+  color: #5a3e2b;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+
 
 @media (min-width: 768px) {
   .section {
@@ -246,27 +273,4 @@ p {
   .text-container {
     padding-left: 30px;
   }
-}
-.spice-description {
-  background-color: #fff8f0;
-  border: 1px solid #f2e1c1;
-  border-radius: 12px;
-  padding: 24px;
-  max-width: 1300px;
-  margin: 40px auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  font-style: italic;
-}
-
-.spice-description p {
-  color: #5a3e2b;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.spice-description strong {
-  color: #c1440e; /* Highlight specific spice names */
-  font-weight: 600;
 }

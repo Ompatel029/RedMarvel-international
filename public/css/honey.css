@@ -190,7 +190,6 @@ h1::after {
   padding: 10px;
   /* background-color: #fff;  ❌ Removed white background */
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -204,6 +203,10 @@ h1::after {
   border-radius: 10px;
   display: block;
   background: transparent; /* optional if image has transparency */
+}
+.image-container img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .text-container {
