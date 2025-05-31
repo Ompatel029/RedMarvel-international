@@ -792,3 +792,133 @@ html {
   line-height: 1.6;
   margin-bottom: 10px;
 }
+
+.review-section {
+  background-color: #fdfdfd;
+  padding: 40px 20px;
+  overflow-x: hidden;
+}
+
+.review-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Carousel container */
+.review-section .carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.review-section .carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual review card */
+.review-section .review-card {
+  min-width: 280px;
+  max-width: 300px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.review-section .review-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Reviewer info */
+.review-section .review-author {
+  font-weight: bold;
+  margin-top: 15px;
+  color: #222;
+}
+
+.review-section .review-text {
+  font-size: 0.95rem;
+  margin-top: 10px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .review-section .carousel {
+    gap: 15px;
+  }
+
+  .review-section .review-card {
+    min-width: 240px;
+  }
+}
+.review-section {
+  padding: 40px 20px;
+  background-color: #fefefe;
+  overflow: hidden;
+}
+
+.review-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+/* Carousel container */
+.review-section .carousel {
+  display: flex;
+  gap: 20px;
+  animation: slideLeft 30s linear infinite;
+  width: max-content;
+}
+
+/* Slide animation */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Review card */
+.review-section .review-card {
+  min-width: 260px;
+  max-width: 300px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: var(--delay);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.review-section .review-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.review-section .review-author {
+  font-weight: bold;
+  margin-top: 15px;
+  color: #333;
+}

@@ -141,14 +141,29 @@
       </div>
     </div>
   </section>
+</section>
+<section class="review-section">
+  <h2 class="section-title">Customer Reviews</h2>
+  <div class="carousel">
+    <% reviews.forEach((review, index) => { %>
+      <div class="review-card" style="--delay:<%= index * 0.3 %>s">
+        <h3 class="reviewer-name"><%= review.name %></h3>
+        <p class="review-services"><strong>Services:</strong> <%= review.services %></p>
+        <p class="review-details"><strong>Details:</strong> <%= review.details %></p>
+        <p class="review-rating">
+          <% for (let i = 0; i < review.rating; i++) { %>⭐<% } %>
+        </p>
+        <p class="review-comment">"<%= review.comment %>"</p>
+      </div>
+    <% }); %>
+  </div>
+</section>
 
-  <!-- Contact Section -->
+ <!-- Contact Section -->
 <section id="contact">
   <div style="text-align: center;">
      <h2 class="section-heading">Contact Us</h2>
   </div>
-  
-
   <div class="contact-container">
     <!-- Google Map -->
     <div class="map-box">
