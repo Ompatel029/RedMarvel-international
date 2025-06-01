@@ -140,23 +140,27 @@
         <div class="logo-circle"><img src="images/FSSAI.PNG" alt="FIEO" /></div>
       </div>
     </div>
-  </section>
-</section>
-<section class="review-section">
-  <h2 class="section-title">Customer Reviews</h2>
+  
+
+<section class="reviewsec">
+  <div style="text-align: center;">
+    <h2 class="certification-heading">What Our Customers Says</h2>
+  </div>
+<div class="carousel-wrapper" style="overflow: hidden;">
   <div class="carousel">
     <% reviews.forEach((review, index) => { %>
-      <div class="review-card" style="--delay:<%= index * 0.3 %>s">
+      <div class="review-card">
         <h3 class="reviewer-name"><%= review.name %></h3>
-        <p class="review-services"><strong>Services:</strong> <%= review.services %></p>
-        <p class="review-details"><strong>Details:</strong> <%= review.details %></p>
-        <p class="review-rating">
+        <p><strong>Services:</strong> <%= review.services %></p>
+        <p><strong>Details:</strong> <%= review.details %></p>
+        <p>
           <% for (let i = 0; i < review.rating; i++) { %>⭐<% } %>
         </p>
         <p class="review-comment">"<%= review.comment %>"</p>
       </div>
     <% }); %>
   </div>
+</div>
 </section>
 
  <!-- Contact Section -->
@@ -199,3 +203,22 @@
     </div>
   </div>
 </section>
+<script>
+  const carousel = document.querySelector('.carousel');
+
+  function slideNext() {
+    const firstCard = carousel.children[0];
+    const cardWidth = firstCard.offsetWidth + 20; // includes gap
+
+    carousel.style.transition = 'transform 0.5s ease';
+    carousel.style.transform = `translateX(-${cardWidth}px)`;
+
+    setTimeout(() => {
+      carousel.style.transition = 'none';
+      carousel.appendChild(firstCard);
+      carousel.style.transform = 'translateX(0)';
+    }, 500); // matches transition time
+  }
+
+  setInterval(slideNext, 4000); // change every 4 seconds
+</script>
