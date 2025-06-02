@@ -22,71 +22,69 @@ app.set('layout', 'layouts/layout');
 const Subscriber = require('./models/subscriber');
 const Contact = require('./models/contact');
 
-// Connect to MongoDB
+// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000,
+  serverSelectionTimeoutMS: 5000
 })
-.then(() => {
-  console.log('✅ MongoDB Connected');
+  .then(() => {
+    console.log('MongoDB Connected');
 
-  // Import routes only after DB is connected
-  const productRoutes = require('./routes/products');
-  const mainRoutes = require('./routes/mainRoutes');
+    // Routes
+    const productRoutes = require('./routes/products');
+    const mainRoutes = require('./routes/mainRoutes');
 
-  app.use('/products', productRoutes);
-  app.use('/', mainRoutes);
+    app.use('/products', productRoutes);
+    app.use('/', mainRoutes);
 
-  // Routes
-  app.get('/about/company', (req, res) => {
-    res.render('pages/company');
+    // Static Page Routes
+    app.get('/about/company', (req, res) => {
+      res.render('pages/company');
+    });
+
+    app.get('/contact', (req, res) => {
+      res.render('pages/contact');
+    });
+
+    // POST: Subscribe
+    app.post('/subscribe', async (req, res) => {
+      try {
+        const { email } = req.body;
+        if (!email) throw new Error("Email is required");
+        const newSub = new Subscriber({ email });
+        await newSub.save();
+        res.redirect('/');
+      } catch (err) {
+        console.error("Subscription error:", err.message);
+        res.status(500).send("Subscription failed. Please try again later.");
+      }
+    });
+
+    // POST: Contact
+    app.post('/contact', async (req, res) => {
+      try {
+        const { firstname, lastname, email, phone, message } = req.body;
+        const contact = new Contact({ firstname, lastname, email, phone, message });
+        await contact.save();
+        console.log('New contact message received');
+        res.redirect('/');
+      } catch (err) {
+        console.error("Contact form error:", err.message);
+        res.status(500).send("Contact submission failed. Please try again.");
+      }
+    });
+
+    // 404 Not Found
+    app.use((req, res) => {
+      res.status(404).render('pages/404'); // Create a 404.ejs file inside views/pages/
+    });
+
+    // Start Server
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+
+  })
+  .catch(err => {
+    console.error('MongoDB Error:', err.message);
   });
-
-  app.get('/contact', (req, res) => {
-    res.render('pages/contact');
-  });
-
-  // POST: Subscribe
-  app.post('/subscribe', async (req, res) => {
-    try {
-      const { email } = req.body;
-      if (!email) throw new Error("Email is required");
-      const newSub = new Subscriber({ email });
-      await newSub.save();
-      res.redirect('/');
-    } catch (err) {
-      console.error("❌ Subscription error:", err.message);
-      res.status(500).send("Subscription failed. Please try again later.");
-    }
-  });
-
-  // POST: Contact
-  app.post('/contact', async (req, res) => {
-    try {
-      const { firstname, lastname, email, phone, message } = req.body;
-      const contact = new Contact({ firstname, lastname, email, phone, message });
-      await contact.save();
-      console.log('📩 New contact message received');
-      res.redirect('/');
-    } catch (err) {
-      console.error("❌ Contact form error:", err.message);
-      res.status(500).send("Contact submission failed. Please try again.");
-    }
-  });
-
-  // 404 Route
-  app.use((req, res) => {
-    res.status(404).render('pages/404'); // Create a 404.ejs file in views/pages
-  });
-
-  // Start Server
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-  });
-
-})
-.catch(err => {
-  console.log('❌ MongoDB Error:', err.message);
-});
