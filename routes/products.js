@@ -53,8 +53,8 @@ router.get('/frozen', (req, res) => {
   res.render('products/frozen');
 });
 
-router.get('/dried product', (req, res) => {
-  res.render('products/dried-product');
+router.get('/dryfruits', (req, res) => {
+  res.render('products/dryfruits');
 });
 
 router.get('/mushroom', (req, res) => {
