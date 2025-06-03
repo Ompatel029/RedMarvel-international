@@ -1,0 +1,136 @@
+.ayurvedic-info-section {
+  padding: 50px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f9f5;
+}
+
+.ayurvedic-info-section h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #2e3c2f;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.ayurvedic-info-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.ayurvedic-info-text {
+  flex: 1;
+  min-width: 320px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ayurvedic-info-text p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.ayurvedic-info-text em {
+  font-weight: 600;
+  color: #006400;
+}
+
+.ayurvedic-info-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ayurvedic-info-image img {
+  width: 100%;
+  max-height: 500px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ayurvedic-info-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ayurvedic-info-text, .ayurvedic-info-image {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .ayurvedic-info-text p {
+    text-align: left;
+  }
+}
+.ayurvedic-section {
+  padding: 50px 20px;
+  background-color: #f3f9f4;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ayurvedic-section h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #215332;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.ayurvedic-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.ayurvedic-card {
+  background-color: transparent; 
+  border-radius: 12px;
+  box-shadow: none; 
+  overflow: hidden;
+  width: 23%; 
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.ayurvedic-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.ayurvedic-card p {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #144d29;
+}
+
+.ayurvedic-card:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 992px) {
+  .ayurvedic-card {
+    width: 45%; 
+  }
+}
+
+@media (max-width: 600px) {
+  .ayurvedic-card {
+    width: 90%; 
+  }
+}

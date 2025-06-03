@@ -1,0 +1,153 @@
+/* Chemicals Info Section */
+.chemical-info-section {
+  padding: 50px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eef4fa;
+}
+
+.chemical-info-section h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #1f3a5f;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.chemical-info-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.chemical-info-text {
+  flex: 1;
+  min-width: 320px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chemical-info-text p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #2a2a2a;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.chemical-info-text em {
+  font-weight: 600;
+  color: #0b3d91;
+}
+
+.chemical-info-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chemical-info-image img {
+  width: 100%;
+  max-height: 500px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chemical-info-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chemical-info-text,
+  .chemical-info-image {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .chemical-info-text p {
+    text-align: left;
+  }
+}
+
+/* Chemical Cards Section */
+.chemical-section {
+  padding: 50px 20px;
+  background-color: #f5fafd;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.chemical-section h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #0d2d52;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.chemical-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.chemical-card {
+  background-color: transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  overflow: hidden;
+  width: 23%;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.chemical-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.chemical-card p {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0b3d91;
+}
+
+.chemical-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive Cards - 4 in a row, then 2 if remaining */
+@media (max-width: 1200px) {
+  .chemical-card {
+    width: 23%;
+  }
+}
+
+@media (max-width: 992px) {
+  .chemical-card {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .chemical-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .chemical-card {
+    width: 90%;
+  }
+}

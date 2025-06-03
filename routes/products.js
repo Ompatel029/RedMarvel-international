@@ -60,5 +60,8 @@ router.get('/dried product', (req, res) => {
 router.get('/mushroom', (req, res) => {
   res.render('products/mushroom');
 });
+router.get('/medicine', (req, res) => {
+  res.render('products/mushroom');
+});
 
 module.exports = router;
