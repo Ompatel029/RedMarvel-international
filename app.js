@@ -22,6 +22,10 @@ app.set('layout', 'layouts/layout');
 const Subscriber = require('./models/subscriber');
 const Contact = require('./models/contact');
 
+app.get('/sitemap.xml', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'sitemap.xml'));
+});
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   serverSelectionTimeoutMS: 5000
