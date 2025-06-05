@@ -42,22 +42,23 @@
   font-weight: 600;
   color: #0b3d91;
 }
-
 .chemical-info-image {
   flex: 1;
   min-width: 300px;
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
+  background-color: #f9f9f9;
 }
 
 .chemical-info-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; 
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
+
 
 
 /* Responsive Design */

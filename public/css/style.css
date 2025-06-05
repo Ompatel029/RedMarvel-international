@@ -25,10 +25,6 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-
-
-
-
 /* Left: Logo and Company Name */
 .navbar-left {
   display: flex;
@@ -164,23 +160,23 @@ header {
 }
 
 .hero-video {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
+    position: relative;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+  }
 
-/* Make video fixed and behind everything */
-.hero-video video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-  pointer-events: none; /* Prevents video from blocking clicks */
-}
+  /* Video styling */
+  .hero-video video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+  }
 
 
 body, html {
