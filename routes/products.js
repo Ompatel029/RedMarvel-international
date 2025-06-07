@@ -61,7 +61,7 @@ router.get('/mushroom', (req, res) => {
   res.render('products/mushroom');
 });
 router.get('/medicine', (req, res) => {
-  res.render('products/mushroom');
+  res.render('products/medicine');
 });
 
 module.exports = router;
