@@ -57,8 +57,8 @@ router.get('/dryfruits', (req, res) => {
   res.render('products/dryfruits');
 });
 
-router.get('/mushroom', (req, res) => {
-  res.render('products/mushroom');
+router.get('/beans', (req, res) => {
+  res.render('products/beans');
 });
 router.get('/medicine', (req, res) => {
   res.render('products/medicine');
