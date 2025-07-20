@@ -29,8 +29,7 @@ header {
   font-weight: bold;
   
 }
-
-/* Navbar items */
+/* Navbar items - desktop */
 .navbar-right {
   display: flex;
   align-items: center;
@@ -41,8 +40,14 @@ header {
 /* Navbar links */
 .navbar-right a {
   text-decoration: none;
-  color: black;
+  color: #333;
   padding: 0.5rem 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar-right a:hover {
+  background-color: #f0f0f0;
+  color: #000;
 }
 
 /* Dropdown */
@@ -63,42 +68,61 @@ header {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 150px;
+  min-width: 180px;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
 .dropdown-content a {
   display: block;
-  padding: 0.5rem 1rem;
-  color: black;
+  padding: 0.75rem 1rem;
+  color: #333;
+  transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Mobile menu toggle (hamburger) */
+/* Hamburger button */
 .mobile-menu-toggle {
   display: none;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  color: white;
+  padding: 0.5rem;
+  background-color: #333;
+  border-radius: 4px;
+  z-index: 1001;
 }
 
-/* Responsive for Mobile */
+/* ✅ Responsive Mobile View */
 @media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+
   .navbar-right {
     flex-direction: column;
     width: 100%;
     display: none;
-    gap: 0;
-    margin-top: 0.5rem;
+    margin-top: 60px;
     background-color: white;
     position: absolute;
-    top: 100%;
+    top: 0;
     left: 0;
-    padding: 1rem 2rem;
+    padding: 1rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-top: 1px solid #eee;
+    z-index: 999;
   }
 
   .navbar-right.active {
@@ -108,27 +132,24 @@ header {
   .navbar-right a,
   .dropdown .dropbtn {
     width: 100%;
-    padding: 1rem 0;
-    border-top: 1px solid #eee;
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
   }
 
   .dropdown-content {
-    position: static;
+    display: none;
+    position: relative;
+    background: #f9f9f9;
     box-shadow: none;
+    padding-left: 1rem;
   }
 
   .dropdown.active .dropdown-content {
     display: block;
   }
-
-  .mobile-menu-toggle {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    background-color: red;
-  }
 }
+
 
 /* Hero section */
 .hero-video {
