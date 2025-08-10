@@ -435,16 +435,13 @@ body, html {
   width: 100%;
   background-color: white;
 }
-.certification-belt-wrapper {
-  overflow-x: hidden; /* keep scroll animation hidden outside */
-  overflow-y: visible; /* allow vertical content */
-}
+
 
 .certification-belt-track {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 60px;
-  animation: scroll-left 25s linear infinite;
 }
 
 @keyframes scroll-left {

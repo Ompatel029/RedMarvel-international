@@ -30,7 +30,7 @@ video.playbackRate = 2.0;
     <img src="/images/spices1.jpg" alt="Spices" />
   </div>
   <div class="product-img" style="transform: rotate(5deg);">
-    <img src="/images/download (1).jpeg" alt="Honey"/>
+    <img src="/image/db552f7a-6a8b-4d33-ad92-430b072f0565_large.webp" alt="Honey"/>
   </div>
 </section>
 
@@ -162,19 +162,11 @@ video.playbackRate = 2.0;
   </div>
 
       <div class="certification-belt-track">
-        <div class="logo-circle"><img src="images/GCCI.PNG" alt="GCCI" /></div>
-        <div class="logo-circle"><img src="images/FSSAI.PNG" alt="FSSAI" /></div>
-        <div class="logo-circle"><img src="images/GCCI.PNG" alt="GCCI" /></div>
+        <div class="logo-circle"><img src="images/FSSAI_logo.PNG" alt="FSSAI" /></div>
         <div class="logo-circle"><img src="images/GST.PNG" alt="GST" /></div>
-        <div class="logo-circle"><img src="images/FICCI.PNG" alt="GMP" /></div>
-        <div class="logo-circle"><img src="images/HALAL-removebg.png" alt="HALAL" /></div>
         <div class="logo-circle"><img src="images/MSME .PNG" alt="MSME" /></div>
-        <div class="logo-circle"><img src="images/Spices Board.PNG" alt="Spices Board" /></div>
         <div class="logo-circle"><img src="images/UDHYOG AADHAR.PNG" alt="Udyog Aadhar" /></div>
-
-        <!-- Repeated for smooth scrolling -->
-        <div class="logo-circle"><img src="images/GCCI.PNG" alt="GCCI" /></div>
-        <div class="logo-circle"><img src="images/FSSAI.PNG" alt="FIEO" /></div>
+        <div class="logo-circle"><img src="images/apeda.PNG" alt="apeda"/></div>
       </div>
     </div>
   
@@ -247,7 +239,7 @@ video.playbackRate = 2.0;
 
   function slideNext() {
     const firstCard = carousel.children[0];
-    const cardWidth = firstCard.offsetWidth + 20; // includes gap
+    const cardWidth = firstCard.offsetWidth + 20; 
 
     carousel.style.transition = 'transform 0.5s ease';
     carousel.style.transform = `translateX(-${cardWidth}px)`;
@@ -256,8 +248,8 @@ video.playbackRate = 2.0;
       carousel.style.transition = 'none';
       carousel.appendChild(firstCard);
       carousel.style.transform = 'translateX(0)';
-    }, 500); // matches transition time
+    }, 500); 
   }
 
-  setInterval(slideNext, 4000); // change every 4 seconds
+  setInterval(slideNext, 4000); 
 </script>
