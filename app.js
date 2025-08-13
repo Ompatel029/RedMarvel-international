@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
+const nodemailer = require('nodemailer'); // Email sending
 
 const app = express();
 
@@ -63,13 +64,38 @@ mongoose.connect(process.env.MONGO_URI, {
       }
     });
 
-    // POST: Contact
     app.post('/contact', async (req, res) => {
       try {
         const { firstname, lastname, email, phone, message } = req.body;
+
         const contact = new Contact({ firstname, lastname, email, phone, message });
         await contact.save();
         console.log('New contact message received');
+
+        let transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: process.env.EMAIL_USER, 
+            pass: process.env.EMAIL_PASS  
+          }
+        });
+
+        let mailOptions = {
+          from: `"${firstname} ${lastname}" <${email}>`,
+          to: process.env.RECEIVER_EMAIL || 'info@redmarvelinternational.com',
+          subject: 'New Contact Form Submission',
+          html: `
+            <h2>New Contact Form Message</h2>
+            <p><strong>Name:</strong> ${firstname} ${lastname}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Message:</strong> ${message}</p>
+          `
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log('Contact form email sent');
+
         res.redirect('/');
       } catch (err) {
         console.error("Contact form error:", err.message);
@@ -77,12 +103,10 @@ mongoose.connect(process.env.MONGO_URI, {
       }
     });
 
-    // 404 Not Found
     app.use((req, res) => {
-      res.status(404).render('pages/404'); // Create a 404.ejs file inside views/pages/
+      res.status(404).render('pages/404');
     });
 
-    // Start Server
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
