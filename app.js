@@ -1,25 +1,22 @@
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); 
 
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
-const nodemailer = require('nodemailer'); // Email sending
+const nodemailer = require('nodemailer'); 
 
 const app = express();
 
-// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// EJS setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
 app.set('layout', 'layouts/layout');
 
-// Models
 const Subscriber = require('./models/subscriber');
 const Contact = require('./models/contact');
 
@@ -27,21 +24,18 @@ app.get('/sitemap.xml', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'sitemap.xml'));
 });
 
-// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   serverSelectionTimeoutMS: 5000
 })
   .then(() => {
     console.log('MongoDB Connected');
 
-    // Routes
     const productRoutes = require('./routes/products');
     const mainRoutes = require('./routes/mainRoutes');
 
     app.use('/products', productRoutes);
     app.use('/', mainRoutes);
 
-    // Static Page Routes
     app.get('/about/company', (req, res) => {
       res.render('pages/company');
     });
@@ -50,7 +44,9 @@ mongoose.connect(process.env.MONGO_URI, {
       res.render('pages/contact');
     });
 
-    // POST: Subscribe
+    
+
+
     app.post('/subscribe', async (req, res) => {
       try {
         const { email } = req.body;
@@ -58,7 +54,8 @@ mongoose.connect(process.env.MONGO_URI, {
         const newSub = new Subscriber({ email });
         await newSub.save();
         res.redirect('/');
-      } catch (err) {
+      }
+      catch (err) {
         console.error("Subscription error:", err.message);
         res.status(500).send("Subscription failed. Please try again later.");
       }
